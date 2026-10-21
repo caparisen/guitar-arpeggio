@@ -1,0 +1,47 @@
+{
+  "name": "guitar-arpeggio",
+  "version": "0.1.0",
+  "description": "Karplus-Strong 吉他合成器 + 分解和弦练习谱（纯 ESM，无打包器）",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch",
+    "dev": "node scripts/serve.mjs",
+    "test": "python tests/test_audio.py && node tests/worklet.test.mjs && node tests/resonator.test.mjs && node tests/engine.test.mjs",
+    "book": "node scripts/emit-book.mjs",
+    "check": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "license": "MIT",
+  "author": "j-sen",
+  "keywords": [
+    "guitar",
+    "karplus-strong",
+    "web-audio",
+    "audioworklet",
+    "tabs",
+    "synthesizer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-sen/guitar-arpeggio.git"
+  },
+  "homepage": "https://github.com/j-sen/guitar-arpeggio",
+  "bugs": {
+    "url": "https://github.com/j-sen/guitar-arpeggio/issues"
+  }
+}
