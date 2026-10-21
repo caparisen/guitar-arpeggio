@@ -27,7 +27,7 @@
     "typescript": "^5.7.2"
   },
   "license": "MIT",
-  "author": "j-sen",
+  "author": "caparisen",
   "keywords": [
     "guitar",
     "karplus-strong",
@@ -38,10 +38,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/j-sen/guitar-arpeggio.git"
+    "url": "git+https://github.com/caparisen/guitar-arpeggio.git"
   },
-  "homepage": "https://github.com/j-sen/guitar-arpeggio",
+  "homepage": "https://github.com/caparisen/guitar-arpeggio",
   "bugs": {
-    "url": "https://github.com/j-sen/guitar-arpeggio/issues"
+    "url": "https://github.com/caparisen/guitar-arpeggio/issues"
   }
 }
