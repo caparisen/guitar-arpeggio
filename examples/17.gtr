@@ -1,0 +1,254 @@
+// generated from Geordie（Joan Baez）旋律 + 加花
+score geordie-joan-baez-melody-with-fills
+id 17
+title Geordie（Joan Baez）旋律 + 加花
+en Geordie - Joan Baez (melody with fills)
+time 3/4
+tempo 96
+grid 12
+units 3
+star ★★★
+prog 旋律 + 加花 ｜ Am–G–F–C ｜ Am–C–G ｜ Am–C–G–Em ｜ F–C–E–Am ｜ tag F–E–Am
+shapes 伴奏 低把位/高把位 ｜ 旋律 1 弦 0–12 品 + 长音 E4 在 2 弦 5 品（可揉）｜ 高把位：7–10、8–10、10–12 把位
+how 伴奏的骨架还是第 16 条的分解，但旋律上到 8–12 品的那几个小节，分解整体搬到同一把位（低音改用 5/6 弦高把位或空弦），左手不用再跨 7–9 个品位。旋律在 1 弦 0–12 品，D4 落 2 弦 3 品；三个长音 E4 换到 2 弦 5 品，左手能揉。句尾加了滑音、揉弦和 G–A–G 勾/拉弦装饰，最后一个音换成 7 品泛音 B5。空弦 E4 只留在不需要揉的经过音上。加花只留少量单音（力度 0.56），其余用滑音/推弦：`7/8` 上滑、`10/12` 上滑、`10\7` 先推后放、`8b10` 推全音。
+tip 高把位小节（A 段第 1 小节和第 6–11 小节）左手整体留在把位上：低音用 5 弦 10 品或 6 弦 8 品，不要回去按 6 弦 3 品。
+tip 第 1、6、13、16 小节的滑音是从下方半音/全音滑进旋律音；左手先按低一品，拨响后立刻推到目标品。
+tip 长音 E4 换到 2 弦 5 品（A 段第 4、5、14 小节），左手可以揉了；代价是音色比 1 弦空弦暖一点。空弦 0 品仍然不能揉，只用在 A15/A16 的经过音上。
+tip 第 12 小节的 `3h5p3~` 是一次拨弦：G4 hammer-on 到 A4、再 pull-off 回 G4，然后揉弦。`steps` 在实时弦和离线 WAV 里都支持。
+tip 加花只剩几个单音（力度 0.56，p），其余装饰是滑音/推弦，不再用成串的十六分音符——这样不会比旋律快一档。`/` 上滑、`\` 下滑（先推上去再放回）、`b` 推弦（只往上）。
+tip 第 7、10 小节的 E5 是全曲最高音，力度收一点，别盖过低音。
+tip 谱面记号：`3h5p3` = 3 品勾到 5 品再拉回 3 品，`7/8~` = 从 7 品滑到 8 品再揉弦，`10/12` = 从 10 品滑到 12 品，`10\7` = 先推到 10 再放回 7，`8b10` = 8 品推到 10 品，`5~` = 2 弦 5 品揉弦，`0` = 空弦（不揉），`7*` = 7 品泛音。
+tip 最后那个 7 品泛音（1 弦 7 品轻触）是收尾的亮片，等 Am 滚和弦响完再碰。
+
+bar 1 Am
+  bass 1:1 0/A 0.8 vel=1
+  arp 1:1.5 2/D 0.8 vel=0.6
+  arp 1:2 2/G 0.8 vel=0.76
+  arp 1:2.5 1/B 1.5 vel=0.64
+  arp 1:3 2/G 0.8 vel=0.8
+  arp 1:3.5 2/D 0.8 vel=0.62
+  mel 1:2.5 5/e 1.44 vel=0.78
+
+bar 2 G
+  bass 2:1 3/E 0.8 vel=1
+  arp 2:1.5 0/D 0.8 vel=0.6
+  arp 2:2 0/G 0.8 vel=0.76
+  arp 2:2.5 0/B 1.5 vel=0.64
+  arp 2:3 0/G 0.8 vel=0.8
+  arp 2:3.5 0/D 0.8 vel=0.62
+  mel 2:2.5 3/e 1.44 vel=0.78
+
+bar 3 F
+  bass 3:1 1/E 0.8 vel=1
+  arp 3:1.5 3/D 0.8 vel=0.6
+  arp 3:2 2/G 0.8 vel=0.76
+  arp 3:2.5 1/B 1.5 vel=0.64
+  arp 3:3 2/G 0.8 vel=0.8
+  arp 3:3.5 3/D 0.8 vel=0.62
+  mel 3:2.5 1/e 1.44 vel=0.78
+
+bar 4 E
+  bass 4:1 0/E 0.8 vel=1
+  arp 4:1.5 2/D 0.8 vel=0.6
+  arp 4:2 1/G 0.8 vel=0.76
+  arp 4:2.5 0/B 1.5 vel=0.64
+  arp 4:3 1/G 0.8 vel=0.8
+  arp 4:3.5 2/D 0.8 vel=0.62
+  mel 4:2.5 0/e 1.44 vel=0.78
+
+bar 5 Am
+  bass 5:1 0/A 0.8 vel=1
+  arp 5:1.5 7/D 0.8 vel=0.6
+  arp 5:2 9/G 0.8 vel=0.76
+  arp 5:2.5 10/B 1.5 vel=0.64
+  arp 5:3 9/G 0.8 vel=0.8
+  arp 5:3.5 7/D 0.8 vel=0.62
+  mel 5:1 8/e 1.5 vel=0.94 pre=-1 rel=0.015,0.1 slide=1 vib=16,5.2,0.35
+  mel 5:2.5 8/e 0.7501 vel=0.94
+  mel 5:3.25 7/e 0.7501 vel=0.94
+  arp 5:1.75 7/G 0.2 vel=0.56
+  anno 5:1 melody
+
+bar 6 G
+  bass 6:1 3/E 0.8 vel=1
+  arp 6:1.5 0/D 0.8 vel=0.6
+  arp 6:2 0/G 0.8 vel=0.76
+  arp 6:2.5 0/B 1.5 vel=0.64
+  arp 6:3 0/G 0.8 vel=0.8
+  arp 6:3.5 0/D 0.8 vel=0.62
+  mel 6:1 7/e 1.5 vel=0.94 vib=16,5,0.35
+  mel 6:2.5 7/e 0.7501 vel=0.94
+  mel 6:3.25 7/e 0.7501 vel=0.94
+  arp 6:2 10/B 0.2 vel=0.56
+
+bar 7 F
+  bass 7:1 1/E 0.8 vel=1
+  arp 7:1.5 3/D 0.8 vel=0.6
+  arp 7:2 2/G 0.8 vel=0.76
+  arp 7:2.5 1/B 1.5 vel=0.64
+  arp 7:3 2/G 0.8 vel=0.8
+  arp 7:3.5 3/D 0.8 vel=0.62
+  mel 7:1 5/e 1.5 vel=0.94 vib=18,5.2,0.35
+  mel 7:2.5 5/e 0.7501 vel=0.94
+  mel 7:3.25 3/e 0.7501 vel=0.94
+  arp 7:2 6/B 0.2 vel=0.56
+
+bar 8 C
+  bass 8:1 3/A 0.8 vel=1
+  arp 8:1.5 2/D 0.8 vel=0.6
+  arp 8:2 0/G 0.8 vel=0.76
+  arp 8:3 0/G 0.8 vel=0.8
+  arp 8:3.5 2/D 0.8 vel=0.62
+  arp 8:1 5/B 3 vel=0.94 pre=1 rel=0.02,0.12 slide=1 vib=20,5,0.35
+
+bar 9 Am
+  bass 9:1 0/A 0.8 vel=1
+  arp 9:1.5 2/D 0.8 vel=0.6
+  arp 9:2 2/G 0.8 vel=0.76
+  arp 9:3 5/G 0.8 vel=0.8
+  arp 9:3.5 2/D 0.8 vel=0.62
+  arp 9:1 5/B 3 vel=0.94 pre=-2 rel=0.02,0.12 slide=1 vib=18,5.2,0.4
+
+bar 10 C
+  bass 10:1 8/E 0.8 vel=1
+  arp 10:1.5 10/D 0.8 vel=0.6
+  arp 10:2 9/G 0.8 vel=0.76
+  arp 10:2.5 8/B 1.5 vel=0.64
+  arp 10:3 9/G 0.8 vel=0.8
+  arp 10:3.5 10/D 0.8 vel=0.62
+  mel 10:1.75 8/e 0.7501 vel=0.94 pre=-1 rel=0.015,0.1 slide=1
+  mel 10:2.5 8/e 0.7501 vel=0.94
+  mel 10:3.25 10/e 0.7501 vel=0.94
+  mel 10:1.5 7/e 0.2 vel=0.56
+
+bar 11 G
+  bass 11:1 10/A 0.8 vel=1
+  arp 11:1.5 12/D 0.8 vel=0.6
+  arp 11:2 12/G 0.8 vel=0.76
+  arp 11:2.5 12/B 1.5 vel=0.64
+  arp 11:3 12/G 0.8 vel=0.8
+  arp 11:3.5 12/D 0.8 vel=0.62
+  mel 11:1 12/e 0.7501 vel=0.94 pre=-2 rel=0.015,0.1 slide=1
+  mel 11:1.75 12/e 2.2501 vel=0.94 vib=22,5.4,0.35
+
+bar 12 G
+  bass 12:1 10/A 0.8 vel=1
+  arp 12:1.5 9/D 0.8 vel=0.6
+  arp 12:2 7/G 0.8 vel=0.76
+  arp 12:2.5 8/B 1.5 vel=0.64
+  arp 12:3 7/G 0.8 vel=0.8
+  arp 12:3.5 9/D 0.8 vel=0.62
+  mel 12:1 7/e 0.7501 vel=0.94
+  mel 12:1.75 8/e 0.7501 vel=0.94 slide=1 bend=2,0.25,0.15
+  mel 12:2.5 10/e 1.5 vel=0.94 vib=18,5.2,0.3
+
+bar 13 Am
+  bass 13:1 0/A 0.8 vel=1
+  arp 13:1.5 7/D 0.8 vel=0.6
+  arp 13:2 9/G 0.8 vel=0.76
+  arp 13:2.5 10/B 1.5 vel=0.64
+  arp 13:3 9/G 0.8 vel=0.8
+  arp 13:3.5 7/D 0.8 vel=0.62
+  mel 13:1.75 8/e 0.7501 vel=0.94 pre=-1 rel=0.015,0.1 slide=1
+  mel 13:2.5 8/e 0.7501 vel=0.94
+  mel 13:3.25 10/e 0.7501 vel=0.94
+  mel 13:1.5 7/e 0.2 vel=0.56
+
+bar 14 C
+  bass 14:1 8/E 0.8 vel=1
+  arp 14:1.5 10/D 0.8 vel=0.6
+  arp 14:2 9/G 0.8 vel=0.76
+  arp 14:2.5 8/B 1.5 vel=0.64
+  arp 14:3 9/G 0.8 vel=0.8
+  arp 14:3.5 10/D 0.8 vel=0.62
+  mel 14:1 12/e 2.2501 vel=0.94 vib=20,5.3,0.3
+  mel 14:3.25 12/e 0.7501 vel=0.94
+
+bar 15 G
+  bass 15:1 10/A 0.8 vel=1
+  arp 15:1.5 9/D 0.8 vel=0.6
+  arp 15:2 7/G 0.8 vel=0.76
+  arp 15:2.5 0/B 1.5 vel=0.64
+  arp 15:3 0/G 0.8 vel=0.8
+  arp 15:3.5 0/D 0.8 vel=0.62
+  mel 15:1 10/e 1.5 vel=0.94 vib=16,5.1,0.3
+  mel 15:2.5 7/e 0.7501 vel=0.94 pre=3 rel=0.02,0.12 slide=1
+  mel 15:3.25 5/e 0.7501 vel=0.94
+
+bar 16 Em
+  bass 16:1 0/E 0.8 vel=1
+  arp 16:1.5 2/D 0.8 vel=0.6
+  arp 16:2 0/G 0.8 vel=0.76
+  arp 16:2.5 0/B 1.5 vel=0.64
+  arp 16:3 0/G 0.8 vel=0.8
+  arp 16:3.5 2/D 0.8 vel=0.62
+  mel 16:1 3/e 3 vel=0.94 vib=18,5.2,0.7 steps=2@0.28,0@0.56
+  anno 16:1 turn
+
+bar 17 F
+  bass 17:1 1/E 0.8 vel=1
+  arp 17:1.5 3/D 0.8 vel=0.6
+  arp 17:2 2/G 0.8 vel=0.76
+  arp 17:2.5 1/B 1.5 vel=0.64
+  arp 17:3 2/G 0.8 vel=0.8
+  arp 17:3.5 3/D 0.8 vel=0.62
+  mel 17:1.75 5/e 1.5 vel=0.94 pre=-2 rel=0.015,0.1 slide=1 vib=20,5.2,0.3
+  mel 17:3.25 5/e 0.7501 vel=0.94 pre=1 rel=0.02,0.12 slide=1
+
+bar 18 C
+  bass 18:1 3/A 0.8 vel=1
+  arp 18:1.5 2/D 0.8 vel=0.6
+  arp 18:2 0/G 0.8 vel=0.76
+  arp 18:3 0/G 0.8 vel=0.8
+  arp 18:3.5 2/D 0.8 vel=0.62
+  mel 18:1 3/e 0.7501 vel=0.94
+  arp 18:1.75 5/B 2.2501 vel=0.94 vib=18,5,0.35
+  arp 18:2.75 0/G 0.2 vel=0.56
+
+bar 19 E
+  bass 19:1 0/E 0.8 vel=1
+  arp 19:1.5 2/D 0.8 vel=0.6
+  arp 19:2 1/G 0.8 vel=0.76
+  arp 19:2.5 0/B 1.5 vel=0.64
+  arp 19:3 1/G 0.8 vel=0.8
+  arp 19:3.5 2/D 0.8 vel=0.62
+  mel 19:1 0/e 1.5 vel=0.94
+  mel 19:2.5 0/e 0.7501 vel=0.94
+  arp 19:3.25 3/B 0.7501 vel=0.94 pre=2 rel=0.02,0.12 slide=1
+  mel 19:1.5 2/e 0.2 vel=0.56
+
+bar 20 Am
+  bass 20:1 0/A 0.8 vel=1
+  arp 20:1.5 2/D 0.8 vel=0.6
+  arp 20:2 2/G 0.8 vel=0.76
+  arp 20:2.5 1/B 1.5 vel=0.64
+  arp 20:3 2/G 0.8 vel=0.8
+  arp 20:3.5 2/D 0.8 vel=0.62
+  mel 20:1 0/e 1.5 vel=0.94
+  mel 20:2.5 5/e 3 vel=0.94 pre=-2 rel=0.015,0.1 slide=1 vib=22,5.4,0.4
+
+bar 21 F
+  bass 21:1 1/E 0.8 vel=1
+  arp 21:1.5 3/D 0.8 vel=0.6
+  arp 21:2 2/G 0.8 vel=0.76
+  arp 21:2.5 1/B 1.5 vel=0.64
+  arp 21:3 2/G 0.8 vel=0.8
+  arp 21:3.5 3/D 0.8 vel=0.62
+
+bar 22 E
+  bass 22:1 0/E 0.8 vel=0.7
+  bass 22:1 2/A 0.8 vel=0.68 off=0.08
+  arp 22:1 2/D 0.8 vel=0.66 off=0.16
+  arp 22:1 1/G 0.8 vel=0.64 off=0.24
+  arp 22:1 0/B 0.8 vel=0.62 off=0.32
+  mel 22:1 0/e 0.8 vel=0.6 off=0.4
+
+bar 23 Am
+  bass 23:1 0/A 0.8 vel=0.72
+  arp 23:1 2/D 0.8 vel=0.7 off=0.08
+  arp 23:1 2/G 0.8 vel=0.68 off=0.16
+  arp 23:1 1/B 0.8 vel=0.66 off=0.24
+  mel 23:1 0/e 0.8 vel=0.64 off=0.32
+  mel 23:3 7/e 2.4 vel=0.55 harm=3,19
+  anno 23:1 rit.
+  anno 23:3 harm

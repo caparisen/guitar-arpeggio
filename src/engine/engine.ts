@@ -41,6 +41,8 @@ export class Engine {
   /** 实时弦（AudioWorklet）是否可用；不可用时自动退回 buffer */
   private liveReady = false;
   private liveNodes: AudioWorkletNode[] = [];
+  /** 排过的播放区间，用于播放指针；stop() 清空 */
+  private timeline: Array<{ pattern: Pattern; start: number; duration: number; speed: number }> = [];
   /** 共鸣弦：总线上的并联支路 */
   private symNode: AudioWorkletNode | null = null;
   private symGain: GainNode | null = null;
@@ -215,6 +217,7 @@ export class Engine {
     this.activeNodes.clear();
     this.liveNodes = [];
     this.ring.clear();
+    this.timeline = [];
   }
 
   /** 排一条谱，返回时长（秒） */
@@ -222,7 +225,28 @@ export class Engine {
     const c = this.ensure();
     const start = at ?? c.currentTime + 0.12;
     this.schedule(pattern, start);
-    return (pattern.barSec * pattern.bars) / this.speed;
+    const dur = (pattern.barSec * pattern.bars) / this.speed;
+    const now = c.currentTime;
+    this.timeline = this.timeline.filter(s => s.start + s.duration > now - 1);
+    this.timeline.push({ pattern, start, duration: dur, speed: this.speed });
+    return dur;
+  }
+
+  /**
+   * 当前播放位置；没在播时返回 null。
+   * bar 从 0 开始，slot 是当前十六分格（0..grid-1）。
+   */
+  get position(): { pattern: Pattern; bar: number; slot: number } | null {
+    const c = this.ctx;
+    if (!c) return null;
+    const now = c.currentTime;
+    const span = this.timeline.find(s => now >= s.start && now < s.start + s.duration);
+    if (!span) return null;
+    const t = Math.max(0, (now - span.start) * span.speed);
+    const bar = Math.min(span.pattern.bars - 1, Math.floor(t / span.pattern.barSec));
+    const slotSec = span.pattern.barSec / span.pattern.grid;
+    const slot = Math.min(span.pattern.grid - 1, Math.floor((t % span.pattern.barSec) / slotSec));
+    return { pattern: span.pattern, bar, slot };
   }
 
   private schedule(p: Pattern, at: number): void {
@@ -364,8 +388,8 @@ export class Engine {
       this.activeNodes.add(pn);
       chain.push(pn, pg);
 
-      // 勾弦的撞击声：手指砸到品丝上，很短很轻
-      if (useLive && tech.steps) {
+      // 勾弦的撞击声：手指砸到品丝上，很短很轻（实时弦和 buffer 路径都要）
+      if (tech.steps) {
         for (const st of tech.steps) {
           const hn = c.createBufferSource();
           hn.buffer = this.bank.pick(c, variant);
@@ -424,6 +448,17 @@ export class Engine {
       pr.setValueAtTime(1, t);
       pr.setValueAtTime(1, t + at);
       pr.linearRampToValueAtTime(Math.pow(2, semis / 12), t + at + len);
+    }
+
+    // 勾弦/拉弦：buffer 路径没有 AudioWorklet，用 playbackRate 的跳变模拟。
+    // steps 里的 semi 是相对原音的绝对半音数（和实时弦一致），不是累加。
+    if (tech.steps?.length) {
+      for (const st of tech.steps) {
+        const rate = Math.pow(2, st.semi / 12);
+        const at = t + st.at;
+        if (st.glide && st.glide > 0) pr.linearRampToValueAtTime(rate, at + st.glide);
+        else pr.setValueAtTime(rate, at);
+      }
     }
 
     if (tech.vib) {

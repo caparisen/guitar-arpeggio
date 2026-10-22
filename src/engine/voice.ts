@@ -13,7 +13,8 @@ const NOTE_SECONDS = 2.0;
  */
 export class VoiceBank {
   private cache = new Map<string, AudioBuffer>();
-  private irs = new Map<TimbreName, AudioBuffer>();
+  /** 按「音色 + 采样率」缓存：ConvolverNode 不接受采样率不匹配的 IR */
+  private irs = new Map<string, AudioBuffer>();
   private timbre: TimbreName = "steel";
 
   get current(): TimbreName {
@@ -44,10 +45,11 @@ export class VoiceBank {
   }
 
   body(ctx: BaseAudioContext): AudioBuffer {
-    const hit = this.irs.get(this.timbre);
+    const key = `${this.timbre}|${ctx.sampleRate}`;
+    const hit = this.irs.get(key);
     if (hit) return hit;
     const ir = createBodyIR(ctx, this.timbre);
-    this.irs.set(this.timbre, ir);
+    this.irs.set(key, ir);
     return ir;
   }
 
@@ -56,7 +58,7 @@ export class VoiceBank {
    * midi 已经是「发声」音高，泛音的高八度由调用方加好。
    */
   note(ctx: BaseAudioContext, midi: number, str: number, variant: number, harm: number): AudioBuffer {
-    const key = `${this.timbre}|${midi}|${str}|${variant}|${harm}`;
+    const key = `${ctx.sampleRate}|${this.timbre}|${midi}|${str}|${variant}|${harm}`;
     const hit = this.cache.get(key);
     if (hit) return hit;
 
@@ -150,7 +152,7 @@ export class VoiceBank {
 
   /** 拨片瞬态：独立小 buffer，按力度在播放时给音量 */
   pick(ctx: BaseAudioContext, variant: number): AudioBuffer {
-    const key = `pick|${this.timbre}|${variant}`;
+    const key = `${ctx.sampleRate}|pick|${this.timbre}|${variant}`;
     const hit = this.cache.get(key);
     if (hit) return hit;
     const T = TIMBRE[this.timbre];
@@ -174,7 +176,7 @@ export class VoiceBank {
 
   /** 滑音噪声：弦擦品丝的「吱」声 */
   squeak(ctx: BaseAudioContext): AudioBuffer {
-    const key = "squeak";
+    const key = `${ctx.sampleRate}|squeak`;
     const hit = this.cache.get(key);
     if (hit) return hit;
     const sr = ctx.sampleRate;

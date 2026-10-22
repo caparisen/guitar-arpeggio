@@ -1,0 +1,99 @@
+{
+  "files": [
+    {
+      "id": 1,
+      "file": "01.gtr",
+      "title": "万能 4/4 分解"
+    },
+    {
+      "id": 2,
+      "file": "02.gtr",
+      "title": "Travis Picking 交替低音"
+    },
+    {
+      "id": 3,
+      "file": "03.gtr",
+      "title": "6/8 抒情分解"
+    },
+    {
+      "id": 4,
+      "file": "04.gtr",
+      "title": "Neo-soul 分散和声"
+    },
+    {
+      "id": 5,
+      "file": "05.gtr",
+      "title": "古典轮指 Tremolo"
+    },
+    {
+      "id": 6,
+      "file": "06.gtr",
+      "title": "3/4 圆舞曲"
+    },
+    {
+      "id": 7,
+      "file": "07.gtr",
+      "title": "J-pop 王道進行 4536251"
+    },
+    {
+      "id": 8,
+      "file": "08.gtr",
+      "title": "Bossa Nova 切分"
+    },
+    {
+      "id": 9,
+      "file": "09.gtr",
+      "title": "技巧演示：推弦 / 揉弦"
+    },
+    {
+      "id": 10,
+      "file": "10.gtr",
+      "title": "扫弦与闷音"
+    },
+    {
+      "id": 11,
+      "file": "11.gtr",
+      "title": "泛音与滑音"
+    },
+    {
+      "id": 13,
+      "file": "13.gtr",
+      "title": "琶音滚奏（1↔6 弦）"
+    },
+    {
+      "id": 14,
+      "file": "14.gtr",
+      "title": "勾弦与滑音"
+    },
+    {
+      "id": 15,
+      "file": "15.gtr",
+      "title": "指弹小品：A 小调"
+    },
+    {
+      "id": 16,
+      "file": "16.gtr",
+      "title": "Geordie（Joan Baez）伴奏"
+    },
+    {
+      "id": 17,
+      "file": "17.gtr",
+      "title": "Geordie（Joan Baez）旋律 + 加花"
+    },
+    {
+      "id": 18,
+      "file": "18.gtr",
+      "title": "Geordie A 段：换和声（8 小节）"
+    },
+    {
+      "id": 19,
+      "file": "19.gtr",
+      "title": "Geordie A 段：切分伴奏（8 小节）"
+    },
+    {
+      "id": 20,
+      "file": "20.gtr",
+      "title": "Geordie A 段：加花 + 换和声（16 小节）"
+    }
+  ]
+}

@@ -4,7 +4,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { CARDS, DEMOS, buildPattern, VoiceBank, encodeWav, KsString } from "../dist/index.js";
+import { buildPattern, VoiceBank, encodeWav, KsString } from "../dist/index.js";
+import { CARDS, DEMOS } from "../scripts/load-examples.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, "..");

@@ -7,35 +7,38 @@
 <link rel="stylesheet" href="./css/player.css">
 </head>
 <body>
-<header>
-  <h1>吉他分解和弦 · 开发预览</h1>
-  <div class="sub">
-    Karplus-Strong 拨弦合成 · 琴体并联送音 · 力度与人性化 ·
-    <strong>这个页面只服务开发，不随包发布</strong>
+<header id="topbar">
+  <div class="bar">
+    <h1>吉他分解和弦 · 开发预览</h1>
+    <div class="sub">
+      Karplus-Strong 拨弦合成 · 琴体并联送音 · 力度与人性化 ·
+      <strong>只服务开发，不随包发布</strong>
+      <span class="meta">｜ 力度 d：pp · p · mp · mf · f · ff ｜ p 行是指针 ^</span>
+    </div>
+  </div>
+  <div class="toolbar">
+    <button id="all">▶ 全部连播</button>
+    <button id="stop">■ 停止</button>
+    <div class="seg" id="timbre">
+      <button data-t="steel" class="on">钢弦</button>
+      <button data-t="nylon">尼龙</button>
+    </div>
+    <div class="seg" id="body">
+      <button data-b="on" class="on">琴体</button>
+      <button data-b="off">干声</button>
+    </div>
+    <div class="seg" id="sym">
+      <button data-s="on" class="on">共鸣</button>
+      <button data-s="off">无</button>
+    </div>
+    <span id="status" class="meta">加载 examples/*.gtr …</span>
+    <label class="meta">速度 <span id="spdv">100%</span></label>
+    <input type="range" id="spd" min="50" max="140" value="100" step="5">
   </div>
 </header>
 
-<div class="toolbar">
-  <button id="all">▶ 全部连播</button>
-  <button id="stop">■ 停止</button>
-  <div class="seg" id="timbre">
-    <button data-t="steel" class="on">钢弦</button>
-    <button data-t="nylon">尼龙</button>
-  </div>
-  <div class="seg" id="body">
-    <button data-b="on" class="on">琴体</button>
-    <button data-b="off">干声</button>
-  </div>
-  <div class="seg" id="sym">
-    <button data-s="on" class="on">共鸣</button>
-    <button data-s="off">无</button>
-  </div>
-  <span id="status" class="meta">实时弦：检测中…</span>
-  <label class="meta">速度 <span id="spdv">100%</span></label>
-  <input type="range" id="spd" min="50" max="140" value="100" step="5">
-</div>
-
+<nav id="toc" aria-label="示例导航"></nav>
 <main id="app"></main>
-<script type="module" src="./dist/dev/preview.js"></script>
+<script type="module" src="./build/dev/preview.js"></script>
 </body>
 </html>

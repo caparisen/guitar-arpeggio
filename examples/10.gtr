@@ -1,0 +1,175 @@
+// generated from 扫弦与闷音
+score strumming
+id 10
+title 扫弦与闷音
+en strumming
+time 4/4
+tempo 96
+grid 16
+units 4
+star ★★☆
+prog C – G – Am – F
+shapes C x32010 ｜ G 320003 ｜ Am x02210 ｜ F 133211
+how 扫弦不是「同时弹几个音」，是六个音在 13 ms 里依次过弦：低到高是下扫，高到低是上扫。上扫通常只碰高音区、力度更轻。
+tip 下扫从低音弦起、上扫从高音弦起，两次的时间差就是扫弦的「毛边」，压平了就成了和弦块。
+tip 上扫力度比下扫轻一档（这里差 25%），并且少扫低音弦，不然会糊。
+tip 闷音（第 3 小节）用掌根压住琴桥，音头保留、延音砍掉，靠的是低通 + 短包络。
+tip 切音（第 4 小节 choke）更短更闷，只有 60 ms，用来打节奏。
+tip 同一条弦被重新拨响时，前一个音必须被止住——这里是 25 ms 的快速衰减，否则连扫会叠成一团。
+
+bar 1 C
+  bass 1:1 3/A 0.8 vel=0.95
+  arp 1:1 2/D 0.8 vel=0.93 off=0.0035
+  arp 1:1 0/G 0.8 vel=0.91 off=0.007
+  arp 1:1 1/B 0.8 vel=0.89 off=0.0105
+  mel 1:1 0/e 0.8 vel=0.87 off=0.014
+  bass 1:2 3/A 0.8 vel=0.95
+  arp 1:2 2/D 0.8 vel=0.93 off=0.0035
+  arp 1:2 0/G 0.8 vel=0.91 off=0.007
+  arp 1:2 1/B 0.8 vel=0.89 off=0.0105
+  mel 1:2 0/e 0.8 vel=0.87 off=0.014
+  bass 1:3 3/A 0.8 vel=0.95
+  arp 1:3 2/D 0.8 vel=0.93 off=0.0035
+  arp 1:3 0/G 0.8 vel=0.91 off=0.007
+  arp 1:3 1/B 0.8 vel=0.89 off=0.0105
+  mel 1:3 0/e 0.8 vel=0.87 off=0.014
+  bass 1:4 3/A 0.8 vel=0.95
+  arp 1:4 2/D 0.8 vel=0.93 off=0.0035
+  arp 1:4 0/G 0.8 vel=0.91 off=0.007
+  arp 1:4 1/B 0.8 vel=0.89 off=0.0105
+  mel 1:4 0/e 0.8 vel=0.87 off=0.014
+  anno 1:1 D
+  anno 1:2 D
+  anno 1:3 D
+  anno 1:4 D
+
+bar 2 G
+  bass 2:1 3/E 0.8 vel=0.95
+  bass 2:1 2/A 0.8 vel=0.93 off=0.0026
+  arp 2:1 0/D 0.8 vel=0.91 off=0.0052
+  arp 2:1 0/G 0.8 vel=0.89 off=0.0078
+  arp 2:1 0/B 0.8 vel=0.87 off=0.0104
+  mel 2:1 3/e 0.8 vel=0.85 off=0.013
+  bass 2:1.5 3/E 0.8 vel=0.95
+  bass 2:1.5 2/A 0.8 vel=0.93 off=0.0022
+  arp 2:1.5 0/D 0.8 vel=0.91 off=0.0044
+  arp 2:1.5 0/G 0.8 vel=0.89 off=0.0066
+  arp 2:1.5 0/B 0.8 vel=0.87 off=0.0088
+  mel 2:1.5 3/e 0.8 vel=0.85 off=0.011
+  mel 2:2 3/e 0.8 vel=0.7
+  arp 2:2 0/B 0.8 vel=0.68 off=0.002
+  arp 2:2 0/G 0.8 vel=0.66 off=0.004
+  arp 2:2 0/D 0.8 vel=0.64 off=0.006
+  bass 2:2 2/A 0.8 vel=0.62 off=0.008
+  bass 2:2 3/E 0.8 vel=0.6 off=0.01
+  mel 2:2.5 3/e 0.8 vel=0.7
+  arp 2:2.5 0/B 0.8 vel=0.68 off=0.002
+  arp 2:2.5 0/G 0.8 vel=0.66 off=0.004
+  arp 2:2.5 0/D 0.8 vel=0.64 off=0.006
+  bass 2:2.5 2/A 0.8 vel=0.62 off=0.008
+  bass 2:2.5 3/E 0.8 vel=0.6 off=0.01
+  bass 2:3 3/E 0.8 vel=0.95
+  bass 2:3 2/A 0.8 vel=0.93 off=0.0026
+  arp 2:3 0/D 0.8 vel=0.91 off=0.0052
+  arp 2:3 0/G 0.8 vel=0.89 off=0.0078
+  arp 2:3 0/B 0.8 vel=0.87 off=0.0104
+  mel 2:3 3/e 0.8 vel=0.85 off=0.013
+  mel 2:3.5 3/e 0.8 vel=0.7
+  arp 2:3.5 0/B 0.8 vel=0.68 off=0.002
+  arp 2:3.5 0/G 0.8 vel=0.66 off=0.004
+  arp 2:3.5 0/D 0.8 vel=0.64 off=0.006
+  bass 2:3.5 2/A 0.8 vel=0.62 off=0.008
+  bass 2:3.5 3/E 0.8 vel=0.6 off=0.01
+  bass 2:4 3/E 0.8 vel=0.95
+  bass 2:4 2/A 0.8 vel=0.93 off=0.0026
+  arp 2:4 0/D 0.8 vel=0.91 off=0.0052
+  arp 2:4 0/G 0.8 vel=0.89 off=0.0078
+  arp 2:4 0/B 0.8 vel=0.87 off=0.0104
+  mel 2:4 3/e 0.8 vel=0.85 off=0.013
+  mel 2:4.5 3/e 0.8 vel=0.7
+  arp 2:4.5 0/B 0.8 vel=0.68 off=0.002
+  arp 2:4.5 0/G 0.8 vel=0.66 off=0.004
+  arp 2:4.5 0/D 0.8 vel=0.64 off=0.006
+  bass 2:4.5 2/A 0.8 vel=0.62 off=0.008
+  bass 2:4.5 3/E 0.8 vel=0.6 off=0.01
+  anno 2:1 D
+  anno 2:1.5 D
+  anno 2:2 U
+  anno 2:2.5 U
+  anno 2:3 D
+  anno 2:3.5 U
+  anno 2:4 D
+  anno 2:4.5 U
+
+bar 3 Am
+  bass 3:1 0/A 0.8 vel=0.88 mute=1
+  arp 3:1 2/D 0.8 vel=0.86 mute=1 off=0.003
+  arp 3:1 2/G 0.8 vel=0.84 mute=1 off=0.006
+  arp 3:1 1/B 0.8 vel=0.82 mute=1 off=0.009
+  mel 3:1 0/e 0.8 vel=0.8 mute=1 off=0.012
+  bass 3:1.5 0/A 0.8 vel=0.88 mute=1
+  arp 3:1.5 2/D 0.8 vel=0.86 mute=1 off=0.003
+  arp 3:1.5 2/G 0.8 vel=0.84 mute=1 off=0.006
+  arp 3:1.5 1/B 0.8 vel=0.82 mute=1 off=0.009
+  mel 3:1.5 0/e 0.8 vel=0.8 mute=1 off=0.012
+  bass 3:2 0/A 0.8 vel=0.88 mute=1
+  arp 3:2 2/D 0.8 vel=0.86 mute=1 off=0.003
+  arp 3:2 2/G 0.8 vel=0.84 mute=1 off=0.006
+  arp 3:2 1/B 0.8 vel=0.82 mute=1 off=0.009
+  mel 3:2 0/e 0.8 vel=0.8 mute=1 off=0.012
+  bass 3:2.5 0/A 0.8 vel=0.88 mute=1
+  arp 3:2.5 2/D 0.8 vel=0.86 mute=1 off=0.003
+  arp 3:2.5 2/G 0.8 vel=0.84 mute=1 off=0.006
+  arp 3:2.5 1/B 0.8 vel=0.82 mute=1 off=0.009
+  mel 3:2.5 0/e 0.8 vel=0.8 mute=1 off=0.012
+  bass 3:3 0/A 0.8 vel=0.88 mute=1
+  arp 3:3 2/D 0.8 vel=0.86 mute=1 off=0.003
+  arp 3:3 2/G 0.8 vel=0.84 mute=1 off=0.006
+  arp 3:3 1/B 0.8 vel=0.82 mute=1 off=0.009
+  mel 3:3 0/e 0.8 vel=0.8 mute=1 off=0.012
+  bass 3:3.5 0/A 0.8 vel=0.88 mute=1
+  arp 3:3.5 2/D 0.8 vel=0.86 mute=1 off=0.003
+  arp 3:3.5 2/G 0.8 vel=0.84 mute=1 off=0.006
+  arp 3:3.5 1/B 0.8 vel=0.82 mute=1 off=0.009
+  mel 3:3.5 0/e 0.8 vel=0.8 mute=1 off=0.012
+  bass 3:4 0/A 0.8 vel=0.88 mute=1
+  arp 3:4 2/D 0.8 vel=0.86 mute=1 off=0.003
+  arp 3:4 2/G 0.8 vel=0.84 mute=1 off=0.006
+  arp 3:4 1/B 0.8 vel=0.82 mute=1 off=0.009
+  mel 3:4 0/e 0.8 vel=0.8 mute=1 off=0.012
+  bass 3:4.5 0/A 0.8 vel=0.88 mute=1
+  arp 3:4.5 2/D 0.8 vel=0.86 mute=1 off=0.003
+  arp 3:4.5 2/G 0.8 vel=0.84 mute=1 off=0.006
+  arp 3:4.5 1/B 0.8 vel=0.82 mute=1 off=0.009
+  mel 3:4.5 0/e 0.8 vel=0.8 mute=1 off=0.012
+  anno 3:1 PM
+
+bar 4 F
+  bass 4:1 1/E 0.8 vel=0.9 mute=2
+  bass 4:1 3/A 0.8 vel=0.88 mute=2 off=0.002
+  arp 4:1 3/D 0.8 vel=0.86 mute=2 off=0.004
+  arp 4:1 2/G 0.8 vel=0.84 mute=2 off=0.006
+  arp 4:1 1/B 0.8 vel=0.82 mute=2 off=0.008
+  mel 4:1 1/e 0.8 vel=0.8 mute=2 off=0.01
+  bass 4:2 1/E 0.8 vel=0.95
+  bass 4:2 3/A 0.8 vel=0.93 off=0.0028
+  arp 4:2 3/D 0.8 vel=0.91 off=0.0056
+  arp 4:2 2/G 0.8 vel=0.89 off=0.0084
+  arp 4:2 1/B 0.8 vel=0.87 off=0.0112
+  mel 4:2 1/e 0.8 vel=0.85 off=0.014
+  bass 4:3 1/E 0.8 vel=0.9 mute=2
+  bass 4:3 3/A 0.8 vel=0.88 mute=2 off=0.002
+  arp 4:3 3/D 0.8 vel=0.86 mute=2 off=0.004
+  arp 4:3 2/G 0.8 vel=0.84 mute=2 off=0.006
+  arp 4:3 1/B 0.8 vel=0.82 mute=2 off=0.008
+  mel 4:3 1/e 0.8 vel=0.8 mute=2 off=0.01
+  bass 4:4 1/E 0.8 vel=0.95
+  bass 4:4 3/A 0.8 vel=0.93 off=0.0028
+  arp 4:4 3/D 0.8 vel=0.91 off=0.0056
+  arp 4:4 2/G 0.8 vel=0.89 off=0.0084
+  arp 4:4 1/B 0.8 vel=0.87 off=0.0112
+  mel 4:4 1/e 0.8 vel=0.85 off=0.014
+  anno 4:1 X
+  anno 4:2 D
+  anno 4:3 X
+  anno 4:4 D

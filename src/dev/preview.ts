@@ -1,16 +1,13 @@
 /**
  * 开发预览页（不随包发布）。
- * 只做三件事：渲染卡片、把按钮接到引擎、把谱面文本放上去。
+ * 从 examples/index.json 读 GScore 文件，parseScore -> buildPattern -> 卡片；
+ * 同时生成左侧固定导航，播放指针仍是 ASCII 的 p 行。
  */
-import { Engine, browserHost, CARDS, DEMOS, buildPattern, cardAscii } from "../index.js";
+import { Engine, browserHost, buildPattern, cardAscii, parseScore } from "../index.js";
 import type { Card, Pattern } from "../index.js";
 
 const engine = new Engine(browserHost);
-const items: ReadonlyArray<{ card: Card; pattern: Pattern }> = [...CARDS, ...DEMOS].map(card => ({
-  card,
-  pattern: buildPattern(card),
-}));
-
+const views = new Map<Pattern, { card: Card; pre: HTMLPreElement }>();
 const $ = <T extends HTMLElement>(id: string): T => {
   const el = document.getElementById(id);
   if (!el) throw new Error(`缺少元素 #${id}`);
@@ -18,12 +15,40 @@ const $ = <T extends HTMLElement>(id: string): T => {
 };
 
 const app = $("app");
+const toc = $("toc");
+const status = $("status");
 let exporting = false;
+let items: ReadonlyArray<{ card: Card; pattern: Pattern }> = [];
+const links = new Map<number, HTMLAnchorElement>();
+
+interface ManifestEntry {
+  id: number;
+  file: string;
+  title: string;
+}
+interface Manifest {
+  files: ManifestEntry[];
+}
+
+async function loadItems(): Promise<Array<{ card: Card; pattern: Pattern }>> {
+  const res = await fetch("examples/index.json", { cache: "no-store" });
+  if (!res.ok) throw new Error(`examples/index.json: HTTP ${res.status}`);
+  const manifest = (await res.json()) as Manifest;
+  return Promise.all(
+    manifest.files.map(async entry => {
+      const r = await fetch(`examples/${entry.file}`, { cache: "no-store" });
+      if (!r.ok) throw new Error(`${entry.file}: HTTP ${r.status}`);
+      const card = parseScore(await r.text());
+      return { card, pattern: buildPattern(card) };
+    }),
+  );
+}
 
 function cardNode(card: Card, pattern: Pattern): HTMLElement {
   const div = document.createElement("div");
   div.className = "card";
   div.id = `c${card.id}`;
+  div.dataset.id = String(card.id);
 
   const hd = document.createElement("div");
   hd.className = "hd";
@@ -51,7 +76,8 @@ function cardNode(card: Card, pattern: Pattern): HTMLElement {
   div.append(prog);
 
   const pre = document.createElement("pre");
-  pre.textContent = cardAscii(card);
+  pre.textContent = cardAscii(card, { pointer: { bar: 0, slot: 0 }, header: false });
+  views.set(pattern, { card, pre });
   div.append(pre);
 
   const how = document.createElement("div");
@@ -108,76 +134,145 @@ function cardNode(card: Card, pattern: Pattern): HTMLElement {
   return div;
 }
 
-for (const { card, pattern } of items) app.append(cardNode(card, pattern));
+/** 左侧固定导航 + 滚动高亮 */
+function buildToc(): void {
+  toc.innerHTML = "";
+  const head = document.createElement("div");
+  head.className = "toc-h";
+  head.textContent = "示例";
+  toc.append(head);
+  for (const { card } of items) {
+    const a = document.createElement("a");
+    a.href = `#c${card.id}`;
+    a.textContent = `${String(card.id).padStart(2, "0")} ${card.title}`;
+    toc.append(a);
+    links.set(card.id, a);
+  }
+  const observer = new IntersectionObserver(
+    entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const id = Number((entry.target as HTMLElement).dataset.id ?? 0);
+        for (const [key, link] of links) link.classList.toggle("on", key === id);
+      }
+    },
+    { rootMargin: "-130px 0px -65% 0px" },
+  );
+  for (const { card } of items) {
+    const el = document.getElementById(`c${card.id}`);
+    if (el) observer.observe(el);
+  }
+}
 
 let allPlaying = false;
 let allTimer = 0;
 
-$("all").onclick = () => {
-  // 连点会瞬间堆出几千个节点，音频线程直接崩——播的时候锁住按钮
-  if (allPlaying) return;
-  engine.stop();
-  let at: number | undefined = undefined;
-  for (const { card, pattern } of items) {
-    const dur = engine.play(pattern, at);
-    const el = document.getElementById(`c${card.id}`);
-    el?.classList.add("playing");
-    window.setTimeout(() => el?.classList.remove("playing"), dur * 1000 + 200);
-    at = (at ?? (engine.context?.currentTime ?? 0) + 0.12) + dur + 0.75;
-  }
-  const totalMs = ((at ?? 0) - (engine.context?.currentTime ?? 0)) * 1000;
-  const btn = $<HTMLButtonElement>("all");
-  allPlaying = true;
-  btn.disabled = true;
-  allTimer = window.setTimeout(() => {
+function initControls(): void {
+  $("all").onclick = () => {
+    if (allPlaying) return;
+    engine.stop();
+    let at: number | undefined = undefined;
+    for (const { card, pattern } of items) {
+      const dur = engine.play(pattern, at);
+      const el = document.getElementById(`c${card.id}`);
+      el?.classList.add("playing");
+      window.setTimeout(() => el?.classList.remove("playing"), dur * 1000 + 200);
+      at = (at ?? (engine.context?.currentTime ?? 0) + 0.12) + dur + 0.75;
+    }
+    const totalMs = ((at ?? 0) - (engine.context?.currentTime ?? 0)) * 1000;
+    const btn = $<HTMLButtonElement>("all");
+    allPlaying = true;
+    btn.disabled = true;
+    allTimer = window.setTimeout(() => {
+      allPlaying = false;
+      btn.disabled = false;
+    }, Math.max(1000, totalMs));
+  };
+
+  $("stop").onclick = () => {
+    window.clearTimeout(allTimer);
     allPlaying = false;
-    btn.disabled = false;
-  }, Math.max(1000, totalMs));
+    $<HTMLButtonElement>("all").disabled = false;
+    engine.stop();
+  };
+
+  const spd = $<HTMLInputElement>("spd");
+  spd.oninput = () => {
+    $("spdv").textContent = `${spd.value}%`;
+    engine.setSpeed(Number(spd.value) / 100);
+  };
+
+  $("timbre").addEventListener("click", e => {
+    const btn = (e.target as HTMLElement).closest("button[data-t]");
+    if (!(btn instanceof HTMLButtonElement)) return;
+    for (const b of document.querySelectorAll("#timbre button")) b.classList.remove("on");
+    btn.classList.add("on");
+    engine.stop();
+    engine.setTimbre(btn.dataset.t === "nylon" ? "nylon" : "steel");
+    engine.warm(items.map(i => i.pattern));
+  });
+
+  $("sym").addEventListener("click", e => {
+    const btn = (e.target as HTMLElement).closest("button[data-s]");
+    if (!(btn instanceof HTMLButtonElement)) return;
+    for (const b of document.querySelectorAll("#sym button")) b.classList.remove("on");
+    btn.classList.add("on");
+    engine.setSympathetic(btn.dataset.s === "on");
+  });
+
+  $("body").addEventListener("click", e => {
+    const btn = (e.target as HTMLElement).closest("button[data-b]");
+    if (!(btn instanceof HTMLButtonElement)) return;
+    for (const b of document.querySelectorAll("#body button")) b.classList.remove("on");
+    btn.classList.add("on");
+    engine.setBody(btn.dataset.b === "on");
+  });
+}
+
+// 播放指针：约 30 fps 只重绘当前卡片；停止后指针回到第 1 小节第 1 格
+let lastPattern: Pattern | null = null;
+let lastFrame = 0;
+const resetPointer = (pattern: Pattern): void => {
+  const v = views.get(pattern);
+  if (v) v.pre.textContent = cardAscii(v.card, { pointer: { bar: 0, slot: 0 }, header: false });
 };
-
-$("stop").onclick = () => {
-  window.clearTimeout(allTimer);
-  allPlaying = false;
-  $<HTMLButtonElement>("all").disabled = false;
-  engine.stop();
+const drawPointer = (now: number): void => {
+  window.requestAnimationFrame(drawPointer);
+  if (now - lastFrame < 33) return;
+  lastFrame = now;
+  const pos = engine.position;
+  if (!pos) {
+    if (lastPattern) resetPointer(lastPattern);
+    lastPattern = null;
+    return;
+  }
+  if (lastPattern && lastPattern !== pos.pattern) resetPointer(lastPattern);
+  const v = views.get(pos.pattern);
+  if (!v) {
+    lastPattern = null;
+    return;
+  }
+  v.pre.textContent = cardAscii(v.card, { pointer: { bar: pos.bar, slot: pos.slot }, header: false });
+  lastPattern = pos.pattern;
 };
+window.requestAnimationFrame(drawPointer);
 
+async function boot(): Promise<void> {
+  try {
+    status.textContent = "加载 examples/*.gtr …";
+    items = await loadItems();
+    for (const { card, pattern } of items) app.append(cardNode(card, pattern));
+    buildToc();
+    initControls();
+    status.textContent = `已加载 ${items.length} 条 · 实时弦检测中…`;
+    void selfCheck();
+  } catch (err) {
+    status.textContent = `加载失败：${err instanceof Error ? err.message : String(err)}`;
+    app.textContent = "examples/ 加载失败；确认 npm run dev 且 examples/index.json 存在。";
+  }
+}
 
-const spd = $<HTMLInputElement>("spd");
-spd.oninput = () => {
-  $("spdv").textContent = `${spd.value}%`;
-  engine.setSpeed(Number(spd.value) / 100);
-};
-
-$("timbre").addEventListener("click", e => {
-  const btn = (e.target as HTMLElement).closest("button[data-t]");
-  if (!(btn instanceof HTMLButtonElement)) return;
-  for (const b of document.querySelectorAll("#timbre button")) b.classList.remove("on");
-  btn.classList.add("on");
-  engine.stop();
-  engine.setTimbre(btn.dataset.t === "nylon" ? "nylon" : "steel");
-  engine.warm(items.map(i => i.pattern));
-});
-
-$("sym").addEventListener("click", e => {
-  const btn = (e.target as HTMLElement).closest("button[data-s]");
-  if (!(btn instanceof HTMLButtonElement)) return;
-  for (const b of document.querySelectorAll("#sym button")) b.classList.remove("on");
-  btn.classList.add("on");
-  engine.setSympathetic(btn.dataset.s === "on");
-});
-
-$("body").addEventListener("click", e => {
-  const btn = (e.target as HTMLElement).closest("button[data-b]");
-  if (!(btn instanceof HTMLButtonElement)) return;
-  for (const b of document.querySelectorAll("#body button")) b.classList.remove("on");
-  btn.classList.add("on");
-  engine.setBody(btn.dataset.b === "on");
-});
-
-// 启动自检：加载 worklet + 试排第 9 条，把结果写在顶栏
-void (async () => {
-  const status = $("status");
+async function selfCheck(): Promise<void> {
   try {
     const ok = await engine.prepare();
     if (!ok) {
@@ -194,7 +289,7 @@ void (async () => {
   } catch (err) {
     status.textContent = `自检失败：${err instanceof Error ? err.message : String(err)}`;
   }
-})();
+}
 
 // 首次交互后再预热，避免无手势就建 AudioContext
 let warmed = false;
@@ -208,3 +303,5 @@ document.addEventListener(
   },
   { once: true },
 );
+
+void boot();

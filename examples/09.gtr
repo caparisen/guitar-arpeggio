@@ -1,0 +1,34 @@
+// generated from 技巧演示：推弦 / 揉弦
+score bend-vibrato
+id 9
+title 技巧演示：推弦 / 揉弦
+en bend & vibrato
+time 4/4
+tempo 88
+grid 8
+units 4
+w 8
+star ★★☆
+prog Am（A 低音持续，旋律走 1 弦 5 品 A4）
+shapes A 低音 5 弦空弦 ｜ 旋律 1 弦 5 品
+how 推弦和揉弦不产生新音符，而是把一个音的音高连续拉高或抖动。谱面上用 b / r / ~ 标，实际发声靠 playbackRate 的自动化。
+tip 推弦靠手腕转，不是手指使劲；推到目标音高先用调音器核对，别凭感觉。
+tip 揉弦是手腕上下摇，5 Hz 左右、幅度约半个半音最像人；太快像颤音器。
+tip 预推弦的顺序是「先推到 → 再拨 → 再放回」，先拨后推就是普通推弦。
+tip 这一段只有本地播放器能听：在线 ASCII 播放器只认数字，b / ~ 会被丢弃。
+
+bar 1 Am
+  bass 1:1 0/A 0.7333
+  mel 1:1 5/e 2.64 vel=0.62 vib=22,5.2,0.35 t60=3.5 label=5~~~~
+
+bar 2 Am
+  bass 2:1 0/A 0.7333
+  mel 2:1 5/e 2.64 vel=0.62 bend=2,0.15,0.5 t60=3.5
+
+bar 3 Am
+  bass 3:1 0/A 0.7333
+  mel 3:1 5/e 2.64 vel=0.62 pre=2 rel=0.75,0.4 t60=3.5 label=(5)b7
+
+bar 4 Am
+  bass 4:1 0/A 0.7333
+  mel 4:1 5/e 2.64 vel=0.62 vib=38,5.5,0.9 bend=2,0.1,0.45 t60=3.5

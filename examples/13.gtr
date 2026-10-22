@@ -1,0 +1,50 @@
+// generated from 琶音滚奏（1↔6 弦）
+score rolled-chord
+id 13
+title 琶音滚奏（1↔6 弦）
+en rolled chord
+time 4/4
+tempo 66
+grid 16
+units 4
+star ★★☆
+prog 同一和弦 C，跨度 40 → 120 → 240 ms，最后反向一遍
+shapes C x32010
+how 扫弦和琶音是同一个动作的两个极端，只差跨度。耳朵大约在 20–30 ms 内会把连续的起音并成一个事件：低于这个数听到的是和弦，高于它才听得出「一颗一颗」。
+tip 同和弦连弹三档：40 ms / 120 ms / 240 ms。分别是 10 / 30 / 60 ms 一根弦。
+tip 40 ms 那档基本还是「一个和弦」——低于 ~20 ms 一根，耳朵会把它们并成一个事件。
+tip 120 ms 开始能听出毛边，240 ms 才是真正的琶音：像竖琴一样一颗一颗落下来。
+tip 跨度由手腕甩动的速度决定，不是数出来的；慢滚时拇指要「推」着走。
+tip 对比：第 10 条扫弦 13 ms（听成和弦），这条最慢 240 ms（听成音阶）。
+
+bar 1 C 40ms
+  bass 1:1 3/A 0.55 vel=0.95
+  arp 1:1 2/D 0.55 vel=0.93 off=0.01
+  arp 1:1 0/G 0.55 vel=0.91 off=0.02
+  arp 1:1 1/B 0.55 vel=0.89 off=0.03
+  mel 1:1 0/e 0.55 vel=0.87 off=0.04
+  anno 1:1 r5
+
+bar 2 C 120ms
+  bass 2:1 3/A 0.55 vel=0.95
+  arp 2:1 2/D 0.55 vel=0.93 off=0.03
+  arp 2:1 0/G 0.55 vel=0.91 off=0.06
+  arp 2:1 1/B 0.55 vel=0.89 off=0.09
+  mel 2:1 0/e 0.55 vel=0.87 off=0.12
+  anno 2:1 r5
+
+bar 3 C 240ms
+  bass 3:1 3/A 0.55 vel=0.95
+  arp 3:1 2/D 0.55 vel=0.93 off=0.06
+  arp 3:1 0/G 0.55 vel=0.91 off=0.12
+  arp 3:1 1/B 0.55 vel=0.89 off=0.18
+  mel 3:1 0/e 0.55 vel=0.87 off=0.24
+  anno 3:1 r5
+
+bar 4 C 240ms 反
+  mel 4:1 0/e 0.55 vel=0.9
+  arp 4:1 1/B 0.55 vel=0.88 off=0.06
+  arp 4:1 0/G 0.55 vel=0.86 off=0.12
+  arp 4:1 2/D 0.55 vel=0.84 off=0.18
+  bass 4:1 3/A 0.55 vel=0.82 off=0.24
+  anno 4:1 r1

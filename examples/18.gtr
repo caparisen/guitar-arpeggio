@@ -1,0 +1,104 @@
+// generated from Geordie A 段：换和声（8 小节）
+score geordie-a-section-reharmonized
+id 18
+title Geordie A 段：换和声（8 小节）
+en Geordie A-section - reharmonized
+time 3/4
+tempo 96
+grid 12
+units 3
+star ★★
+prog Am7–G6–Fmaj7–Cmaj7/E ｜ Am7–Cmaj7–G6–Gadd9
+shapes Am7 / G6 / Fmaj7 / Cmaj7/E ｜ Am7 / Cmaj7 / G6 / Gadd9
+how 旋律、滑音、揉弦、勾弦和加花与第 17 条的前 8 小节完全相同，只换伴奏和弦：Am7–G6–Fmaj7–Cmaj7/E ｜ Am7–Cmaj7–G6–Gadd9。颜色音：Am7 的 G、Cmaj7 的 B、Fmaj7 的 E、G6 的 E、Gadd9 的 A；第 4 小节低音落到 6 弦空弦 E，和前三个低音 A–G–F 连成下行。
+tip 先听旋律：和 17 条一样；再听伴奏：7/6/9 音把颜色变暖了。
+tip 第 4 小节的 Cmaj7/E 低音是 6 弦空弦 E，低音线 A–G–F–E 是这 4 小节的骨架。
+tip Gadd9 的 A 是 9 音，不是转位；别把它听成 Am。
+tip 如果某个颜色音太甜，可以把 2 弦的 7 音换回原和弦音；先保留旋律音，再动伴奏。
+
+bar 1 Am7
+  bass 1:1 0/A 0.8 vel=1
+  arp 1:1.5 7/D 0.8 vel=0.6
+  arp 1:2 9/G 0.8 vel=0.76
+  arp 1:2.5 8/B 1.5 vel=0.64
+  arp 1:3 9/G 0.8 vel=0.8
+  arp 1:3.5 7/D 0.8 vel=0.62
+  mel 1:1 8/e 1.5 vel=0.94 pre=-1 rel=0.015,0.1 slide=1 vib=16,5.2,0.35
+  mel 1:2.5 8/e 0.7501 vel=0.94
+  mel 1:3.25 7/e 0.7501 vel=0.94
+  arp 1:1.75 7/G 0.2 vel=0.56
+
+bar 2 G6
+  bass 2:1 3/E 0.8 vel=1
+  arp 2:1.5 0/D 0.8 vel=0.6
+  arp 2:2 0/G 0.8 vel=0.76
+  arp 2:2.5 0/B 1.5 vel=0.64
+  arp 2:3 2/D 0.8 vel=0.8
+  arp 2:3.5 0/B 1.5 vel=0.62
+  mel 2:1 7/e 1.5 vel=0.94 vib=16,5,0.35
+  mel 2:2.5 7/e 0.7501 vel=0.94
+  mel 2:3.25 7/e 0.7501 vel=0.94
+  arp 2:2 10/B 0.2 vel=0.56
+
+bar 3 Fmaj7
+  bass 3:1 1/E 0.8 vel=1
+  arp 3:1.5 3/D 0.8 vel=0.6
+  arp 3:2 2/G 0.8 vel=0.76
+  arp 3:2.5 1/B 1.5 vel=0.64
+  arp 3:3 2/D 0.8 vel=0.8
+  arp 3:3.5 1/B 1.5 vel=0.62
+  mel 3:1 5/e 1.5 vel=0.94 vib=18,5.2,0.35
+  mel 3:2.5 5/e 0.7501 vel=0.94
+  mel 3:3.25 3/e 0.7501 vel=0.94
+  arp 3:2 6/B 0.2 vel=0.56
+
+bar 4 Cmaj7/E
+  bass 4:1 0/E 0.8 vel=1
+  bass 4:1.5 3/A 0.8 vel=0.6
+  arp 4:2 2/D 0.8 vel=0.76
+  arp 4:2.5 0/G 0.8 vel=0.64
+  arp 4:3 4/G 0.8 vel=0.8
+  arp 4:3.5 2/D 0.8 vel=0.62
+  arp 4:1 5/B 3 vel=0.94 pre=1 rel=0.02,0.12 slide=1 vib=20,5,0.35
+
+bar 5 Am7
+  bass 5:1 0/A 0.8 vel=1
+  arp 5:1.5 2/D 0.8 vel=0.6
+  arp 5:2 0/G 0.8 vel=0.76
+  arp 5:2.5 2/D 0.8 vel=0.64
+  arp 5:3 5/G 0.8 vel=0.8
+  arp 5:3.5 2/D 0.8 vel=0.62
+  arp 5:1 5/B 3 vel=0.94 pre=-2 rel=0.02,0.12 slide=1 vib=18,5.2,0.4
+
+bar 6 Cmaj7
+  bass 6:1 8/E 0.8 vel=1
+  arp 6:1.5 10/D 0.8 vel=0.6
+  arp 6:2 9/G 0.8 vel=0.76
+  arp 6:2.5 12/B 1.5 vel=0.64
+  arp 6:3 9/G 0.8 vel=0.8
+  arp 6:3.5 10/D 0.8 vel=0.62
+  mel 6:1.75 8/e 0.7501 vel=0.94 pre=-1 rel=0.015,0.1 slide=1
+  mel 6:2.5 8/e 0.7501 vel=0.94
+  mel 6:3.25 10/e 0.7501 vel=0.94
+  mel 6:1.5 7/e 0.2 vel=0.56
+
+bar 7 G6
+  bass 7:1 10/A 0.8 vel=1
+  arp 7:1.5 12/D 0.8 vel=0.6
+  arp 7:2 14/G 0.8 vel=0.76
+  arp 7:2.5 12/B 1.5 vel=0.64
+  arp 7:3 14/G 0.8 vel=0.8
+  arp 7:3.5 12/D 0.8 vel=0.62
+  mel 7:1 12/e 0.7501 vel=0.94 pre=-2 rel=0.015,0.1 slide=1
+  mel 7:1.75 12/e 2.2501 vel=0.94 vib=22,5.4,0.35
+
+bar 8 Gadd9
+  bass 8:1 10/A 0.8 vel=1
+  arp 8:1.5 9/D 0.8 vel=0.6
+  arp 8:2 7/G 0.8 vel=0.76
+  arp 8:2.5 10/B 1.5 vel=0.64
+  arp 8:3 7/G 0.8 vel=0.8
+  arp 8:3.5 9/D 0.8 vel=0.62
+  mel 8:1 7/e 0.7501 vel=0.94
+  mel 8:1.75 8/e 0.7501 vel=0.94 slide=1 bend=2,0.25,0.15
+  mel 8:2.5 10/e 1.5 vel=0.94 vib=18,5.2,0.3

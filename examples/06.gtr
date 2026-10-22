@@ -1,0 +1,53 @@
+// generated from 3/4 圆舞曲
+score waltz-bass-chunk-chunk
+id 6
+title 3/4 圆舞曲
+en waltz bass-chunk-chunk
+time 3/4
+tempo 120
+grid 12
+units 3
+star ★☆☆
+prog C – Am – Dm – G
+shapes C x32010 ｜ Am x02210 ｜ Dm xx0231（低音 5 弦 5 品）｜ G 320003
+how 低音 - 和弦 - 和弦。第 1 拍拇指单音，第 2、3 拍 i-m-a 三个音同时落下。
+tip 三个音必须同时响，不能扫成琶音——这是圆舞曲和分解的分界线。
+tip 低音要留满一整拍，别一按就松，否则三拍子会散。
+tip 低音线 C-A-D-G 是全曲骨架，先把它单独弹成一条旋律。
+tip 想加花：第 3 拍改成两个八分（和弦 + 高音），但先别在第 2 拍动。
+
+bar 1 C
+  bass 1:1 3/A 1
+  arp 1:2 0/G 1
+  arp 1:2 1/B 1
+  mel 1:2 0/e 1
+  arp 1:3 0/G 1
+  arp 1:3 1/B 1
+  mel 1:3 0/e 1
+
+bar 2 Am
+  bass 2:1 0/A 1
+  arp 2:2 2/G 1
+  arp 2:2 1/B 1
+  mel 2:2 0/e 1
+  arp 2:3 2/G 1
+  arp 2:3 1/B 1
+  mel 2:3 0/e 1
+
+bar 3 Dm
+  bass 3:1 5/A 1
+  arp 3:2 2/G 1
+  arp 3:2 3/B 1
+  mel 3:2 1/e 1
+  arp 3:3 2/G 1
+  arp 3:3 3/B 1
+  mel 3:3 1/e 1
+
+bar 4 G
+  bass 4:1 3/E 1
+  arp 4:2 0/G 1
+  arp 4:2 0/B 1
+  mel 4:2 3/e 1
+  arp 4:3 0/G 1
+  arp 4:3 0/B 1
+  mel 4:3 3/e 1

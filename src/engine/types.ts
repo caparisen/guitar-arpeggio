@@ -41,6 +41,8 @@ export interface Pattern {
   sig: string;
   bpm: number;
   barSec: number;
+  grid: number;
+  units: number;
   bars: number;
   prog: string;
   how: string;

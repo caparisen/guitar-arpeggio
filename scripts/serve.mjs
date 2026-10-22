@@ -13,6 +13,7 @@ const TYPES = {
   ".js": "text/javascript; charset=utf-8",
   ".css": "text/css; charset=utf-8",
   ".json": "application/json; charset=utf-8",
+  ".gtr": "text/plain; charset=utf-8",
   ".map": "application/json; charset=utf-8",
   ".f32": "application/octet-stream",
 };

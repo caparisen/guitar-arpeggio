@@ -1,0 +1,57 @@
+// generated from Travis Picking 交替低音
+score alternating-bass
+id 2
+title Travis Picking 交替低音
+en alternating bass
+time 4/4
+tempo 96
+grid 16
+units 4
+star ★★☆
+prog C – G – Am – F（同一条进行，换手法）
+shapes C x32010 ｜ G 320003 ｜ Am x02210 ｜ F 133211
+how 拇指在根音和五度之间来回：C 是 A3 ↔ E3，G 是 E3 ↔ A2，Am 是 A0 ↔ E0，F 是 F1 ↔ C3。手指在 2、3、1 弦上补旋律。
+tip 先只用拇指弹完整首：1、3 拍低音，其它时候空着。拇指稳了，手指才加得进去。
+tip 拇指和手指是两条独立的轨道，不要互相等——这是 Travis 和普通分解最大的区别。
+tip 第 4 小节的 F 用大横按，拇指跳到 6 弦 1 品时手腕别塌，低音要响。
+tip 练到能一边弹一边聊天，这条才算过关。
+
+bar 1 C
+  bass 1:1 3/A 0.8
+  arp 1:1.5 0/G 0.8
+  arp 1:2 1/B 0.8
+  mel 1:2.5 0/e 0.8
+  bass 1:3 3/E 0.8
+  arp 1:3.5 1/B 0.8
+  arp 1:4 0/G 0.8
+  arp 1:4.5 1/B 0.8
+
+bar 2 G
+  bass 2:1 3/E 0.8
+  arp 2:1.5 0/D 0.8
+  arp 2:2 0/G 0.8
+  arp 2:2.5 0/B 0.8
+  bass 2:3 2/A 0.8
+  arp 2:3.5 0/B 0.8
+  arp 2:4 0/G 0.8
+  arp 2:4.5 0/D 0.8
+
+bar 3 Am
+  bass 3:1 0/A 0.8
+  arp 3:1.5 2/D 0.8
+  arp 3:2 2/G 0.8
+  arp 3:2.5 1/B 0.8
+  bass 3:3 0/E 0.8
+  arp 3:3.5 1/B 0.8
+  arp 3:4 2/G 0.8
+  arp 3:4.5 2/D 0.8
+
+bar 4 F
+  bass 4:1 1/E 0.8
+  arp 4:1.5 3/D 0.8
+  arp 4:2 2/G 0.8
+  arp 4:2.5 1/B 0.8
+  bass 4:3 3/A 0.8
+  arp 4:3.5 1/B 0.8
+  arp 4:4 2/G 0.8
+  arp 4:4.5 3/D 0.8

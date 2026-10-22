@@ -1,0 +1,36 @@
+// generated from 泛音与滑音
+score harmonics-slide
+id 11
+title 泛音与滑音
+en harmonics & slide
+time 4/4
+tempo 72
+grid 16
+units 4
+star ★★☆
+prog 12 品 → 7 品 → 5 品，最后一句滑音
+shapes 泛音是「轻触节点不按下去」：12 品 = 2 分音（高八度），7 品 = 3 分音，5 品 = 4 分音
+how 泛音不是按弦，是手指轻放在节点上、拨完立刻离开，弦分成 2/3/4 段振动。发声比按弦高 12 / 19 / 24 个半音，音色近乎纯音、延音更长。
+tip 手指只是「碰」在品丝正上方，不要压下去，压下去就成了闷音。
+tip 12 品最容易响，7 品次之，5 品要更靠近品丝；找不到位置就前后挪一毫米。
+tip 泛音音量天然比按弦小，谱子里给了 0.7 的补偿，弹真琴时别用力砸。
+tip 最后一小节是滑音：左手按着 2 品往 4 品推过去，滑的瞬间有弦擦品丝的噪声（squeak）。
+
+bar 1 12品
+  bass 1:1 12/E 1.92 harm=2,12
+  bass 1:2 12/A 1.92 harm=2,12
+  arp 1:3 12/D 1.92 harm=2,12
+
+bar 2 7品
+  bass 2:1 7/E 1.92 harm=3,19
+  bass 2:2 7/A 1.92 harm=3,19
+  arp 2:3 7/D 1.92 harm=3,19
+
+bar 3 5品
+  bass 3:1 5/E 1.92 harm=4,24
+  bass 3:2 5/A 1.92 harm=4,24
+  arp 3:3 5/D 1.92 harm=4,24
+
+bar 4 滑音
+  mel 4:1 5/e 1.44 slide=1 bend=2,0.08,0.35 label=5/7
+  mel 4:3 12/e 1.92 harm=2,12

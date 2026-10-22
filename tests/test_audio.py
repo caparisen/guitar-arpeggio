@@ -142,9 +142,9 @@ def main():
               low > 1.5 and high < 1.2,
               f"100Hz {20 * np.log10(low):+.1f}dB  8kHz {20 * np.log10(high):+.1f}dB")
 
-    print("\n[7] 数据完整性（13 条）")
+    print("\n[7] 数据完整性（19 条）")
     ps = man["patterns"]
-    check("条数 14", len(ps) == 14, f"实际 {len(ps)}")
+    check("条数 19", len(ps) == 19, f"实际 {len(ps)}")
     bad = []
     for p in ps:
         end = p["barSec"] * p["bars"]

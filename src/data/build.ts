@@ -1,9 +1,9 @@
 import { TUNING } from "../engine/config.js";
 import type { NoteTuple, Pattern, Tech } from "../engine/types.js";
-import { barSec, type Card, type Event, type RawNote } from "./patterns.js";
+import { barSec, type Card, type Event, type RawNote } from "./types.js";
 
 /** 弦序基准音量：低音更响 */
-const STR_VEL: Readonly<Record<number, number>> = { 6: 1.0, 5: 0.96, 4: 0.92, 3: 0.89, 2: 0.86, 1: 0.83 };
+export const STR_VEL: Readonly<Record<number, number>> = { 6: 1.0, 5: 0.96, 4: 0.92, 3: 0.89, 2: 0.86, 1: 0.83 };
 
 const round = (v: number, d: number): number => Number(v.toFixed(d));
 const clamp = (v: number, lo: number, hi: number): number => Math.min(hi, Math.max(lo, v));
@@ -79,6 +79,8 @@ export function buildPattern(card: Card): Pattern {
     sig: card.sig,
     bpm: card.bpm,
     barSec: bs,
+    grid: card.grid,
+    units: card.units,
     bars: card.bars.length,
     prog: card.prog,
     how: card.how,

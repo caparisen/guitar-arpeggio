@@ -1,0 +1,38 @@
+// generated from 勾弦与滑音
+score hammer-pull-slide
+id 14
+title 勾弦与滑音
+en hammer / pull / slide
+time 4/4
+tempo 80
+grid 8
+units 4
+w 8
+star ★★☆
+prog Am（1 弦 5 品 = A4，7 品 = B4，9 品 = C#5）
+shapes 1 弦 5 品 ｜ 7 品 = B4 ｜ 9 品 = C#5
+how 勾弦不重新拨弦：手指砸到更高的品上，弦的振动长度瞬间变短，音就上去了。滑音是同一个动作的连续版本——按住弦在品丝上拖。
+tip 勾弦（h）的关键是「砸」：手指要有速度，砸下去那一下会有一声很轻的撞击。
+tip 拉弦（p）反过来，手指勾住弦往下带，音量会略小一点。
+tip 滑音（/ 和 \）拖动过程中有弦擦品丝的沙沙声，这里用带通噪声还原。
+tip 这三种都要求左手不松开，松了就成了两个音。
+
+bar 1 Am
+  bass 1:1 0/A 0.6667
+  mel 1:1 5/e 2.4 vel=0.62 steps=2@0.35 t60=3.5
+  anno 1:1 h
+
+bar 2 Am
+  bass 2:1 0/A 0.6667
+  mel 2:1 7/e 2.4 vel=0.62 steps=-2@0.35 t60=3.5
+  anno 2:1 p
+
+bar 3 Am
+  bass 3:1 0/A 0.6667
+  mel 3:1 5/e 2.4 vel=0.62 slide=1 bend=4,0.3,0.3 t60=3.5 label=5/9
+  anno 3:1 /
+
+bar 4 Am
+  bass 4:1 0/A 0.6667
+  mel 4:1 9/e 2.4 vel=0.62 slide=1 bend=-4,0.3,0.3 t60=3.5 label=9\5
+  anno 4:1 \

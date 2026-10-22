@@ -30,6 +30,9 @@ jobs:
       - name: 构建
         run: npm run build
 
+      - name: 谱面可弹性校验
+        run: npm run validate
+
       - name: 音频回归测试
         run: npm test
 

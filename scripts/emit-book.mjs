@@ -4,7 +4,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { CARDS, DEMOS, renderBlock } from "../dist/index.js";
+import { renderBlock } from "../dist/index.js";
+import { CARDS, DEMOS } from "./load-examples.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, "guitar-arpeggio-patterns.txt");
