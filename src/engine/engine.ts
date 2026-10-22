@@ -283,8 +283,9 @@ export class Engine {
       // 这一条音用到的所有节点，结束时统一摘掉
       const chain: AudioNode[] = [];
 
-      // 带音高自动化的音走实时弦：推弦只改音高、不改时长
-      const wantsLive = Boolean(tech.bend ?? tech.pre ?? tech.vib ?? tech.steps);
+      // 推弦/揉弦走实时弦（只改音高、不改时长）；勾弦/拉弦走 buffer 路径：
+      // 实时弦只改延迟线长度、不给新音高补能量，页面里会只剩 hammer 的闷响。
+      const wantsLive = !tech.steps && Boolean(tech.bend ?? tech.pre ?? tech.vib);
       const useLive = wantsLive && this.liveReady && !this.offline && "audioWorklet" in c;
       let src: AudioBufferSourceNode | null = null;
       let live: AudioWorkletNode | null = null;
@@ -388,17 +389,17 @@ export class Engine {
       this.activeNodes.add(pn);
       chain.push(pn, pg);
 
-      // 勾弦的撞击声：手指砸到品丝上，很短很轻（实时弦和 buffer 路径都要）
+      // 勾弦的撞击声：手指砸到品丝上，用专门的 hammer 瞬态（不是拨片声）
       if (tech.steps) {
         for (const st of tech.steps) {
           const hn = c.createBufferSource();
-          hn.buffer = this.bank.pick(c, variant);
+          hn.buffer = this.bank.hammer(c, variant);
           const hg = c.createGain();
-          hg.gain.value = 0.02 + 0.05 * vel;
+          hg.gain.value = 0.09 + 0.13 * vel;
           hn.connect(hg);
           hg.connect(pan);
           hn.start(t + st.at);
-          hn.stop(t + st.at + 0.05);
+          hn.stop(t + st.at + 0.08);
           this.activeNodes.add(hn);
           chain.push(hn, hg);
         }

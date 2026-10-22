@@ -174,6 +174,58 @@ export class VoiceBank {
     return this.put(key, buf);
   }
 
+  /**
+   * 勾弦/拉弦的「手指砸到品丝」声。
+   *
+   * 比拨片瞬态低一个八度（1.8 kHz 带通 + 300 Hz 闷响），衰减也更慢一点。
+   * 旧版这一步复用拨片声、电平只有 0.06，几乎听不见。
+   */
+  hammer(ctx: BaseAudioContext, variant: number): AudioBuffer {
+    const key = `${ctx.sampleRate}|hammer|${this.timbre}|${variant}`;
+    const hit = this.cache.get(key);
+    if (hit) return hit;
+    const sr = ctx.sampleRate;
+    const N = Math.floor(sr * 0.07);
+    const buf = ctx.createBuffer(1, N, sr);
+    const d = buf.getChannelData(0);
+    const rnd = makeRng(5177 + variant * 2731 + (this.timbre === "nylon" ? 191 : 0));
+
+    const fc = (this.timbre === "nylon" ? 1500 : 1800) * (0.9 + rnd() * 0.2);
+    const w0 = (2 * Math.PI * fc) / sr;
+    const alpha = Math.sin(w0) / (2 * 1.1);
+    const a0 = 1 + alpha;
+    const b0 = alpha / a0;
+    const b2 = -alpha / a0;
+    const a1 = (-2 * Math.cos(w0)) / a0;
+    const a2 = (1 - alpha) / a0;
+    let x1 = 0;
+    let x2 = 0;
+    let y1 = 0;
+    let y2 = 0;
+    const thumpW = (2 * Math.PI * 300) / sr;
+
+    for (let i = 0; i < N; i++) {
+      const nz = rnd() * 2 - 1;
+      const y = b0 * nz + b2 * x2 - a1 * y1 - a2 * y2;
+      x2 = x1;
+      x1 = nz;
+      y2 = y1;
+      y1 = y;
+      const env = (1 - Math.exp(-i / (sr * 0.0005))) * Math.exp(-i / (sr * 0.009));
+      const th =
+        (1 - Math.exp(-i / (sr * 0.001))) *
+        Math.exp(-i / (sr * 0.016)) *
+        Math.sin(thumpW * i + 0.3);
+      d[i] = y * env + th * 0.45;
+    }
+
+    let peak = 0;
+    for (let i = 0; i < N; i++) peak = Math.max(peak, Math.abs(d[i]));
+    const k = 1 / (peak || 1);
+    for (let i = 0; i < N; i++) d[i] *= k;
+    return this.put(key, buf);
+  }
+
   /** 滑音噪声：弦擦品丝的「吱」声 */
   squeak(ctx: BaseAudioContext): AudioBuffer {
     const key = `${ctx.sampleRate}|squeak`;
